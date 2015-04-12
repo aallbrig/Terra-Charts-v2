@@ -1,0 +1,36 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Bootstrap overrides */
+body {
+  padding: 0;
+}
+.navbar-default {
+  background-color: transparent;
+}
+/* End bootstrap overrides */
+
+#map-canvas {
+  width: 100%;
+  height: 500px;
+}
+
+#nav-bar_fluid-container {
+  background: purple;
+}
+.map-canvas_fullscreen {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

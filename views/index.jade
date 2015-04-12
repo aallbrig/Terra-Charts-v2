@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  #page.page
+  script(type='text/jsx').
+    require(['react', 'jsx!pages/#{page}'], function(React, Page){
+      window.console.log('layout here!');
+      //- window.console.log(Page);
+      React.render(
+        <Page/>,
+        document.getElementById('page')
+      );
+    });
