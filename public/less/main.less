@@ -1,0 +1,30 @@
+/* 
+ * This file is strictly concenred with application-wide stylessheets.
+ * If you need to style only one page, refer to the page-specifc stylesheets.
+ */
+@import 'variables.less';
+@import 'infoWindow.less';
+@import 'components/compnoentsRegistry.less';
+@import 'bootstrapOverrides.less';
+
+
+body, html {
+  height: 100%;
+  width: 100
+}
+
+.app-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: @purple-white;
+  overflow: hidden;
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
+  border: 1px solid blue;
+}

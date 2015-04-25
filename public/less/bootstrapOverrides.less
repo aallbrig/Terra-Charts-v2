@@ -1,15 +1,19 @@
+@import 'variables.less';
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 a {
   color: #00B7FF;
 }
-html,
-body {
+
+html, body {
   height: 100%;
   overflow: hidden;
 }
+
 /* Bootstrap overrides */
 body {
   padding: 0;
@@ -18,10 +22,12 @@ body {
   background-color: transparent;
 }
 /* End bootstrap overrides */
+
 #map-canvas {
   width: 100%;
   height: 500px;
 }
+
 #nav-bar_fluid-container {
   background: purple;
 }
@@ -30,3 +36,26 @@ body {
   height: 100%;
   width: 100%;
 }
+.container-fluid {
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+// max-width variant
+@media (max-width: @screen-xs-min) {
+
+}
+@media (max-width: @screen-sm-min) {
+ .navbar {
+    margin-bottom: 0; // reset for mobile sizes
+  } 
+}
+@media (max-width: @screen-md-min) {
+  
+}
+@media (max-width: @screen-lg-min) {
+  
+}
+

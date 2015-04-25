@@ -151,7 +151,11 @@ define(function(require){
         window.console.log('clicked the map!');
       });
       this.setState( { map : map,
-                        mapDiv: mapDiv });
+                       mapDiv: mapDiv });
+      if (this.props.getMap) {
+        window.console.log('getMap FN detected!');
+        this.props.getMap(map);
+      }
       this.updateMarkers(this.props.points);
     },
 
@@ -179,9 +183,9 @@ define(function(require){
 
     // update markers if needed
     componentWillReceiveProps : function(props) {
-      // console.log('updating markers');
+      console.log('updating markers');
       if( props.points ) this.updateMarkers(props.points);
-      // console.log('props updated');
+      console.log('props updated');
     },
 
     createMarker: function(marker, point, markerModel) {

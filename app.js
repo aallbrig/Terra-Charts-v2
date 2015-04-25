@@ -11,12 +11,14 @@ var express = require('express'),
     users  = require('./routes/users'),
     charts = require('./routes/charts'),
 
-    Config = require('./config/config')  // config is a reserved word
+    Config = require('./config/config'),  // config is a reserved word
+    expressLess = require('express-less'),
     app = express();
 
 livereload(app, config={
   'watchDir' : process.cwd()
 });
+console.log('Livereaload watchDir: ' + process.cwd());
 
 console.log(Config);
 
@@ -31,6 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(__dirname + '/public/stylesheets', expressLess(__dirname + '/public/stylesheets'));
 
 app.use('/', routes);
 app.use('/users', users);

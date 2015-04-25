@@ -8,21 +8,30 @@ define(function(require){
       Jumbotron = ReactBootstrap.Jumbotron,
       Button = ReactBootstrap.Button,
       NavBar = require('jsx!components/NavBar'),
-      Map = require('jsx!components/Map');
+      Map = require('jsx!components/Map'),
+      CreateControls = require('jsx!components/controls/CreateControls');
 
+  window.console.log('map');
+  window.console.log(Map);
+  window.Map = Map;
   return React.createClass({
+    getInitialState: function () {
+      return {
+        map : null
+      }
+    },
     _configureMap: function () {
-      this._user = {};
+      this._user = {}; 
       this._data = {};
       this._data.sequence = {};
       this._data.sequence.points = [];
-      console.log('user');
-      console.log(this._user);
-      console.log('data');
-      console.log(this._data);
-      this._lat = localStorage.getItem('latitude') || 60.38;
-      this._lng = localStorage.getItem('longitude') || 89.12;
-      this._zoom = parseInt(localStorage.getItem('zoom') || 9);
+      // console.log('user');
+      // console.log(this._user);
+      // console.log('data');
+      // console.log(this._data);
+      this._lat = localStorage.getItem('latitude') || null;
+      this._lng = localStorage.getItem('longitude') || null;
+      this._zoom = parseInt(localStorage.getItem('zoom') || null);
       this._mapType;
       if(localStorage.getItem('mapType') == null){
         this._mapType = "HYBRID";
@@ -32,23 +41,35 @@ define(function(require){
       }
     },
 
+    getMap: function (map) {
+      window.console.log('recieved map!');
+      this.setState({map : map});
+    },
+
     render: function(){
       this._configureMap();
-      var map = <Map id="map-canvas"
-                     ref="map"
-                     edit={false} 
-                     latitude={this._lat}
-                     longitude={this._lng}
-                     zoom={this._zoom} 
-                     points={this._data.sequence.points}/>
-      // map.addControls('#map-controls')
-      // window.console.log('map');
-      // window.console.log(map);
       return (
-        <span id='page-container'>
+        <Grid id='page-container' fluid={true}>
           <NavBar/>
-          {map}
-        </span>
+          <Row>
+            <Col xs={12}>
+              {(this.state.map) ? 
+                <CreateControls map={this.state.map}/>
+              : null }
+            </Col>
+            <Col xs={12} className='map-container'>
+            
+            </Col>
+          </Row>
+          <Map id="map-canvas"
+                   ref="map"
+                   edit={false} 
+                   latitude={this._lat}
+                   longitude={this._lng}
+                   zoom={this._zoom} 
+                   points={this._data.sequence.points}
+                   getMap={this.getMap}/>
+        </Grid>
       );
     }
   });

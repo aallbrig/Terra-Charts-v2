@@ -1,0 +1,76 @@
+@import '../variables.less';
+
+@menu-items_width: 200px;
+@menu-items_color: @light-purple;
+
+.menu {
+  min-height: 26px;
+  background-color: @dark-purple;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  .btn {
+    height: 30px;
+  }
+  h3 {
+    margin-top: 0px;
+    margin-left: 40px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    color: white;
+    text-align: center;
+  }
+}
+.menu_menu-items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: @menu-items_width;
+  background-color: @menu-items_color;
+  min-height: 100%;
+  z-index: 10;
+  text-align: center;
+}
+.menu_user-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: @menu-items_width;
+  background-color: @menu-items_color;
+  min-height: 100%;
+  z-index: 10;
+  text-align: center;
+}
+.menu_navbar_show-menu_state {
+  position: relative;
+  left: @menu-items_width;
+}
+.menu_navbar_show-user-menu_state {
+  position: relative;
+  right: @menu-items_width;
+}
+@media all and (max-width: 480) {
+  .menu {
+    border: 1px solid purple;
+    min-height: 100px;
+  }
+  
+}
+
+@media (max-width: @screen-xs-min) {
+  .menu {
+    h3 {
+      margin-top: 5px;
+      margin-left: 5px;
+      font-size: 20px;
+    }
+  }
+}
+@media (max-width: @screen-sm-min) {
+  
+}
+@media (max-width: @screen-md-min) {
+  
+}
+@media (max-width: @screen-lg-min) {
+  
+}

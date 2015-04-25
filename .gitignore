@@ -4,4 +4,6 @@ node_modules/*
 public/bower
 public/bower/**
 
+public/stylesheets/**/*.css
+
 npm-debug.log
