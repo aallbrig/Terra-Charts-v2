@@ -9,6 +9,7 @@ define(function (require) {
   var MapSettingsButton = require('jsx!components/buttons/MapSettingsButton');
   var MyLocationButton = require('jsx!components/buttons/MyLocationButton');
   var TrashButton = require('jsx!components/buttons/TrashButton');
+  var DrawLinesButton = require('jsx!components/buttons/DrawLinesButton');
 
   return React.createClass({
     getDefaultProps: function () {
@@ -41,6 +42,9 @@ define(function (require) {
               </ListGroupItem>
               <ListGroupItem>
                 <TrashButton map={this.props.map}/>
+              </ListGroupItem>
+              <ListGroupItem>
+                <DrawLinesButton />
               </ListGroupItem>
             </div>
           : null }

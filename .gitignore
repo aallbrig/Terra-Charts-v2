@@ -6,4 +6,9 @@ public/bower/**
 
 public/stylesheets/**/*.css
 
+public/javascripts/AltSingleton.js
+public/javascripts/stores/**/*.js
+public/javascripts/actions/**/*.js
+
+
 npm-debug.log
