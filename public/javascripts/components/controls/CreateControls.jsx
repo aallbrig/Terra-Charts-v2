@@ -11,13 +11,25 @@ define(function (require) {
   var TrashButton = require('jsx!components/buttons/TrashButton');
 
   return React.createClass({
+    getDefaultProps: function () {
+      return {
+        id: 'create-controls',
+        placement: google.maps.ControlPosition.TOP_RIGHT
+      }
+    },
+    componentDidMount: function () {
+      window.console.log('Time to add the controls to the map');
+      var centerControl = document.getElementById(this.props.id);
+      window.console.log(centerControl);
+      this.props.map.controls[this.props.placement].push(centerControl);
+    },
     render : function() {
       var hasMap = (this.props.map)? true : false;
       console.log(this.props.data);
       return (
         <div>
           {(hasMap) ? 
-            <div className="panel create-controls">
+            <div id={this.props.id} className="panel create-controls">
               <ListGroupItem>
                 <AddMarkerButton map={this.props.map}/>
               </ListGroupItem>

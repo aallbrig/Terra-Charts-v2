@@ -42,6 +42,7 @@ define(function(require){
     },
 
     getMap: function (map) {
+      // This is to retrieve the map and have the parent manage the map's state.  This sounds kind of bad but I'll refactor when requried.
       window.console.log('recieved map!');
       this.setState({map : map});
     },
@@ -58,9 +59,10 @@ define(function(require){
               : null }
             </Col>
             <Col xs={12} className='map-container'>
-            
+              // Supposed placement of map.  Currently broken.
             </Col>
           </Row>
+          // WARNING: This currently cannot be placed within a grid.  TODO: Research is required.
           <Map id="map-canvas"
                    ref="map"
                    edit={false} 
