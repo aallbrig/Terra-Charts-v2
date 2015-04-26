@@ -24,7 +24,8 @@
     "requirejs-plugins": "~1.0.3",
     "gmaps": "~0.4.17",
     "font-awesome": "~4.3.0",
-    "alt": "~0.15.5"
+    "alt": "~0.15.5",
+    "es6-shim": "~0.29.0"
   },
   "resolutions": {
     "bootswatch": "~3.3.4+1"

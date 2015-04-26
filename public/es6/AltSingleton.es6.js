@@ -1,8 +1,10 @@
 define(function (require) {
   'use strict';
   var AltLibrary = require('alt');
-  window.console.log(AltLibrary);
+  
+  var AltSingleton = new AltLibrary();
+
   // return singleton
-  return new Alt(); 
+  return AltSingleton; 
 });
 

@@ -12,7 +12,8 @@ define(function(require){
       MenuItem = ReactBootstrap.MenuItem,
       CollapsableNav = ReactBootstrap.CollapsableNav,
       google = require('gmaps'),
-      $ = require('jquery');
+      $ = require('jquery'),
+      ChartActions = require('actions/ChartActions');
 
   window.console.log('google');
   window.console.log(google);
@@ -156,6 +157,8 @@ define(function(require){
         window.console.log('getMap FN detected!');
         this.props.getMap(map);
       }
+      window.console.log('Sending ChartActions.mapCreated now');
+      ChartActions.mapCreated(map);
       this.updateMarkers(this.props.points);
     },
 
